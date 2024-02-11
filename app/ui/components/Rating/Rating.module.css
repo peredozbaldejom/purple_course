@@ -1,0 +1,12 @@
+.filled {
+    fill: var(--primary);
+    filter: brightness(0.1);
+}
+
+.star img{
+    margin-right: 5px;
+}
+
+.iseditable {
+    cursor: pointer;
+}

@@ -1,95 +1,70 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
+import Htag from './ui/components/Htag/Htag';
+import { Button } from './ui/components/Button/Button';
+import PTag from './ui/components/PTag/PTag';
+import Tag from './ui/components/Tag/Tag';
+import { useEffect, useState } from 'react';
+import Rating from './ui/components/Rating/Rating';
+import Test from './ui/components/test';
+import { getData, getDummy } from './lib/actions';
+import next from 'next';
 
 export default function Home() {
+  const a = '!';
+  const [count, setCount] = useState(1)
+  const [rating, setRating] = useState<number>(3)
+  const [info, setInfo] = useState({userId: '',  id: '', title: '', completed: ''})
+  const [prod, setProd] = useState({products: Array(100)})
+
+  useEffect(() => {
+    console.log(count + '    <--- its count');
+
+
+    async function getInfo() {
+      const data = await getData({ id: count});
+      const nextData = {...info, ...data}
+      setInfo(nextData)
+    }  
+
+    async function getProd() {
+      const data = await getDummy();
+      const nextData = {...prod, products: [...data.products]};
+      console.log(nextData);
+      setProd(nextData);
+    }
+    
+    getInfo();
+    getProd();
+    
+
+    return function clean() {
+      console.log('Hook is done')
+    }
+  }, [count])
+
+  
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <h1>Main Page - {count}</h1>
+      <p>it is string</p>
+      <Htag tag='h1'>{info.id} --- {info.title}</Htag>
+      <Htag tag='h1'>Text h1</Htag>
+      <Htag tag='h2'>H2</Htag>
+      <Htag tag='h3'>Text h3</Htag>
+      <Button appearance='primary' arrow='down' onClick={() => {setCount(count + 1)}}>button p</Button>
+      <Button appearance='ghost' arrow='right'>button g</Button>
+      <PTag size='s'> Text P1 </PTag>
+      <PTag > Text P2 </PTag>
+      <PTag size='l'> Text P3 </PTag>
+      <Tag size='s' color='green'>Green</Tag>
+      <Tag size='m' color='primary'>primary</Tag>
+      <Tag size='m' color='red'>RED</Tag>
+      <Tag href='/' color='grey'> grey href</Tag>
+      <Rating rating={rating} isEditable setRating={setRating}></Rating>
+      <Test dummyData={prod} setDummy={setProd}/>
     </main>
   )
 }
