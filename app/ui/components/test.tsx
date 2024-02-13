@@ -1,6 +1,7 @@
 import { getData } from '@/app/lib/actions'
 import { useState } from 'react';
 import { Test } from '@/app/lib/definitions';
+
  
 export default function Test({dummyData} : Test) {
 

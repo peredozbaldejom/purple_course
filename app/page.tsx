@@ -64,7 +64,7 @@ export default function Home() {
       <Tag size='m' color='red'>RED</Tag>
       <Tag href='/' color='grey'> grey href</Tag>
       <Rating rating={rating} isEditable setRating={setRating}></Rating>
-      <Test dummyData={prod} setDummy={setProd}/>
+      <Test dummyData={prod} />
     </main>
   )
 }

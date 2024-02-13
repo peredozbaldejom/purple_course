@@ -23,3 +23,13 @@ export async function getDummy() {
 
     return res.json()
 }
+
+export async function getDummyId({ id } : {id: number}) {
+    const res = await fetch(process.env.NEXT_PUBLIC_DOMAIN + '/products/' + id)
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch DummyData')
+    }
+
+    return res.json()
+}
