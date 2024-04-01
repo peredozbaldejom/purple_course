@@ -1,0 +1,26 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-template-areas: 
+        'pic title'
+        'desc desc';
+    gap: 20px;
+}
+
+.title {
+    grid-area: title;
+    justify-self: start;
+    align-self: center;
+}
+
+.pic {
+    grid-area: pic;
+
+}
+
+.desc {
+    grid-area: desc;
+    border-left: 3px solid var(--grey-dark);
+    padding-left: 45px;
+    margin: 25px !important;
+}

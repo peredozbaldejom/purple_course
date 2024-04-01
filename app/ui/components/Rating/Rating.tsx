@@ -28,7 +28,6 @@ export default function Rating({ isEditable = false, rating, setRating, ...props
                     alt=''
                     height={20}
                     width={20}
-                    
                     tabIndex={isEditable ? 0 : -1}
                     onKeyDown={(e: KeyboardEvent<HTMLImageElement>) => isEditable && handleClick(i + 1, e)}
                 />

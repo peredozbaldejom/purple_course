@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 export default function PTag ({ children, size='m', className, ...props} : PtagProps) : JSX.Element {
   return (
-    <p className={cn(styles.p, className, {
+    <p className={cn(className, styles.p, {
       [styles.s]: size == 's',
       [styles.m]: size == 'm',
       [styles.l]: size == 'l',
