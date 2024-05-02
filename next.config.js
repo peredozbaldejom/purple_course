@@ -12,6 +12,15 @@ module.exports = {
           port: '',
           pathname: '/product-images/**',
         },
+        {
+          protocol: 'https',
+          hostname: 'old-images.hb.ru-msk.vkcs.cloud',
+          port: '',
+          pathname: '/uploads/**/**',
+        },
       ],
     },
   }
+
+
+  // https:/old-images.hb.ru-msk.vkcs.cloud/uploads/2021-03-23/skillbox.png

@@ -1,5 +1,5 @@
 import { HtmlAttributes } from "csstype";
-import { ReactNode, ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from "react";
+import { ReactNode, ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { Interface } from "readline";
 
 
@@ -49,6 +49,10 @@ export interface HeaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 }
 
 export interface FooterProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    
+}
+
+export interface DividerProps extends DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement> {
     
 }
 
@@ -184,6 +188,7 @@ export interface ProductModel {
   oldPrice: number
   characteristics: Characteristic[]
   advantages?: string
+  disadvantages?: string;
   initialRating: number
   createdAt: string
   updatedAt: string
@@ -229,4 +234,15 @@ export interface SortProps {
 export enum SortEnum {
     price, 
     rating
+}
+
+export interface IInput extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+
+}
+export interface ITextArea extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+
+}
+
+export interface ProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    product: ProductModel;
 }

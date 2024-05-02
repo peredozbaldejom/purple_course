@@ -6,7 +6,7 @@ import Image from 'next/image'
 export const Button = ({ children, arrow = 'none', appearance, className, ...props} : ButtonProps) : JSX.Element => {
   return (
     <button 
-        className={cn(styles.button, className, {
+        className={cn(styles.button, className,   {
             [styles.primary]: appearance == 'primary',
             [styles.ghost]: appearance == 'ghost',
         })} 

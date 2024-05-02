@@ -12,14 +12,14 @@ export default function Sorting({sort, setSort, className, ...props} : SortProps
             className={cn({
                 [styles.active] : sort == SortEnum.rating
             })}>
-            <Image className={styles.icon} src='/sort.svg' width={20} height={20} alt=' '/>По&nbsp;рейтингу
+            <Image className={styles.icon} src='/sort.svg' width={20} height={20} alt=' '/>По рейтингу
         </span>
         <span
             onClick={() => setSort(SortEnum.price)}
             className={cn({
                 [styles.active] : sort == SortEnum.price
             })}>
-            <Image className={styles.icon} src='/sort.svg' width={20} height={20} alt=' '/>По&nbsp;цене
+            <Image className={styles.icon} src='/sort.svg' width={20} height={20} alt=' '/>По цене
         </span>
     </div>
   )

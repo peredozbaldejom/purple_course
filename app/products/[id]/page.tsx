@@ -17,7 +17,7 @@ export default async function Page({ params } : PageParams) {
     const data = await getDummyId(params);
     
     async function Tim() {
-        const ti = await new Promise((res) => setTimeout(() => { res('something')}, 6000))
+        const ti = await new Promise((res) => setTimeout(() => { res('something')}, 0))
         return JSON.stringify(ti)
     }
     console.log(Tim())

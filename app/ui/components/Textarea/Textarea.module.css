@@ -1,0 +1,14 @@
+.textarea {
+    padding: 7px 15px;
+    border: none;
+    outline-color: var(--primary);
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 22px;
+    box-shadow: 3px 6px 2px 0px rgba(0, 0, 0, 0.05);
+    outline-color: var(--primary);
+}
+
+.textarea::placeholder {
+    color: var(--grey);
+}
